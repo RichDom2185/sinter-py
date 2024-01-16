@@ -1,10 +1,22 @@
-from typing import TypedDict
+from typing import Callable, TypedDict
 
 
 class State(TypedDict):
     entrypoint: int
 
 
-def u32_to_int(b: bytes) -> int:
-    assert len(b) == 4
+def _to_int(b: bytes, size: int) -> int:
+    assert len(b) == size
     return int.from_bytes(b, "little")
+
+
+def read_u8(reader: Callable[[int], bytes]) -> int:
+    return _to_int(reader(1), 1)
+
+
+def read_u16(reader: Callable[[int], bytes]) -> int:
+    return _to_int(reader(2), 2)
+
+
+def read_u32(reader: Callable[[int], bytes]) -> int:
+    return _to_int(reader(4), 4)

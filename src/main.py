@@ -1,7 +1,7 @@
 import sys
 from typing import Callable
 
-from interpreter import HEADER_SIZE, parse_and_validate_header
+from interpreter import read_header
 from utils import State
 
 
@@ -20,9 +20,7 @@ def setup(filename: str | None) -> tuple[Callable[[int], bytes], Callable[[], No
 def main(args: list[str]) -> None:
     reader, cleanup = setup(args[0] if args else None)
 
-    config: State = {}
-    header = reader(HEADER_SIZE)
-    ok = parse_and_validate_header(header, config)
+    config, ok = read_header(reader)
     if not ok:
         cleanup()
         return

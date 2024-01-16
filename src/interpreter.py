@@ -1,4 +1,6 @@
-from utils import State, u32_to_int
+from typing import Callable
+
+from utils import State, read_u16, read_u32
 
 # SVML Specification Reference:
 # https://github.com/source-academy/js-slang/wiki/SVML-Specification
@@ -12,24 +14,20 @@ from utils import State, u32_to_int
 # | Minor version       | u16           |
 # | Entry point         | address (u32) |
 # | Constant pool count	| u32           |
-HEADER_SIZE = 16  # 4 + 2 + 2 + 4 + 4
+_HEADER_SIZE = 16  # 4 + 2 + 2 + 4 + 4
 
 
-def parse_and_validate_header(header: bytes, config: State) -> bool:
-    if len(header) != HEADER_SIZE:
-        return False
+def read_header(reader: Callable[[int], bytes]) -> tuple[State, bool]:
+    config: State = {}
 
-    magic = header[0:4]
-    # major_version = header[4:6]
-    # minor_version = header[6:8]
-    entry_point = header[8:12]
-    # constant_pool_count = header[12:16]
+    magic = read_u32(reader)
+    major_version = read_u16(reader)
+    minor_version = read_u16(reader)
+    entry_point = read_u32(reader)
+    constant_pool_count = read_u32(reader)
 
-    # Magic is the value 0x5005ACAD
-    # Little endian
-    if magic != b"\xad\xac\x05\x50":
-        return False
+    if magic != 0x5005ACAD:
+        return config, False
 
-    config['entrypoint'] = u32_to_int(entry_point)
-
-    return True
+    config['entrypoint'] = entry_point
+    return config, True
