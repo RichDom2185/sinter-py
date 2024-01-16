@@ -9,11 +9,11 @@ from utils import State, read_u16, read_u32
 # Header structure
 # | Field               | Type          |
 # | ------------------- | ------------- |
-# | Magic	            | u32           |
+# | Magic               | u32           |
 # | Major version       | u16           |
 # | Minor version       | u16           |
 # | Entry point         | address (u32) |
-# | Constant pool count	| u32           |
+# | Constant pool count | u32           |
 
 
 def read_header(reader: Callable[[int], bytes]) -> tuple[State, bool]:
@@ -61,3 +61,13 @@ def read_constants(reader: Callable[[int], bytes], num_constants: int):
         reader(padding)
 
     return constants
+
+
+# Function structure
+# | Field               | Type |
+# | ------------------- | ---- |
+# | Stack size          | u8   |
+# | Environment size    | u8   |
+# | Number of arguments | u8   |
+# | Padding (alignment) | u8   |
+# | Code Instruction    | []   |
