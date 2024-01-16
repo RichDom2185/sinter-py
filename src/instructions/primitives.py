@@ -3,98 +3,98 @@ import math
 # Must match the order of the functions in the wiki
 # https://github.com/source-academy/js-slang/wiki/SVML-Instruction-Set#primitive-functions
 PRIMITIVE_FUNCTIONS = [
-    'accumulate',
-    'append',
-    'array_length',
-    'build_list',
-    'build_stream',
-    'display',
-    'draw_data',
-    'enum_list',
-    'enum_stream',
-    'equal',
-    'error',
-    'eval_stream',
-    'filter',
-    'for_each',
-    'head',
-    'integers_from',
-    'is_array',
-    'is_boolean',
-    'is_function',
-    'is_list',
-    'is_null',
-    'is_number',
-    'is_pair',
-    'is_stream',
-    'is_string',
-    'is_undefined',
-    'length',
-    'list',
-    'list_ref',
-    'list_to_stream',
-    'list_to_string',
-    'map',
-    'math_abs',
-    'math_acos',
-    'math_acosh',
-    'math_asin',
-    'math_asinh',
-    'math_atan',
-    'math_atan2',
-    'math_atanh',
-    'math_cbrt',
-    'math_ceil',
-    'math_clz32',
-    'math_cos',
-    'math_cosh',
-    'math_exp',
-    'math_expm1',
-    'math_floor',
-    'math_fround',
-    'math_hypot',
-    'math_imul',
-    'math_log',
-    'math_log1p',
-    'math_log2',
-    'math_log10',
-    'math_max',
-    'math_min',
-    'math_pow',
-    'math_random',
-    'math_round',
-    'math_sign',
-    'math_sin',
-    'math_sinh',
-    'math_sqrt',
-    'math_tan',
-    'math_tanh',
-    'math_trunc',
-    'member',
-    'pair',
-    'parse_int',
-    'remove',
-    'remove_all',
-    'reverse',
+    'accumulate',  # Source 2
+    'append',  # Source 2
+    'array_length',  # Source 3
+    'build_list',  # Source 2
+    'build_stream',  # Source 3
+    'display',  # Source 1
+    'draw_data',  # Source 2
+    'enum_list',  # Source 2
+    'enum_stream',  # Source 3
+    'equal',  # Source 2
+    'error',  # Source 1
+    'eval_stream',  # Source 3
+    'filter',  # Source 2
+    'for_each',  # Source 2
+    'head',  # Source 2
+    'integers_from',  # Source 3
+    'is_array',  # Source 3
+    'is_boolean',  # Source 1
+    'is_function',  # Source 1
+    'is_list',  # Source 2
+    'is_null',  # Source 2
+    'is_number',  # Source 1
+    'is_pair',  # Source 2
+    'is_stream',  # Source 3
+    'is_string',  # Source 1
+    'is_undefined',  # Source 1
+    'length',  # Source 2
+    'list',  # Source 2
+    'list_ref',  # Source 2
+    'list_to_stream',  # Source 3
+    'list_to_string',  # Source 2
+    'map',  # Source 2
+    'math_abs',  # Source 1
+    'math_acos',  # Source 1
+    'math_acosh',  # Source 1
+    'math_asin',  # Source 1
+    'math_asinh',  # Source 1
+    'math_atan',  # Source 1
+    'math_atan2',  # Source 1
+    'math_atanh',  # Source 1
+    'math_cbrt',  # Source 1
+    'math_ceil',  # Source 1
+    'math_clz32',  # Source 1
+    'math_cos',  # Source 1
+    'math_cosh',  # Source 1
+    'math_exp',  # Source 1
+    'math_expm1',  # Source 1
+    'math_floor',  # Source 1
+    'math_fround',  # Source 1
+    'math_hypot',  # Source 1
+    'math_imul',  # Source 1
+    'math_log',  # Source 1
+    'math_log1p',  # Source 1
+    'math_log2',  # Source 1
+    'math_log10',  # Source 1
+    'math_max',  # Source 1
+    'math_min',  # Source 1
+    'math_pow',  # Source 1
+    'math_random',  # Source 1
+    'math_round',  # Source 1
+    'math_sign',  # Source 1
+    'math_sin',  # Source 1
+    'math_sinh',  # Source 1
+    'math_sqrt',  # Source 1
+    'math_tan',  # Source 1
+    'math_tanh',  # Source 1
+    'math_trunc',  # Source 1
+    'member',  # Source 2
+    'pair',  # Source 2
+    'parse_int',  # Source 1
+    'remove',  # Source 2
+    'remove_all',  # Source 2
+    'reverse',  # Source 2
     'runtime',
-    'set_head',
-    'set_tail',
-    'stream',
-    'stream_append',
-    'stream_filter',
-    'stream_for_each',
-    'stream_length',
-    'stream_map',
-    'stream_member',
-    'stream_ref',
-    'stream_remove',
-    'stream_remove_all',
-    'stream_reverse',
-    'stream_tail',
-    'stream_to_list',
-    'tail',
-    'stringify',
-    'prompt',
+    'set_head',  # Source 3
+    'set_tail',  # Source 3
+    'stream',  # Source 3
+    'stream_append',  # Source 3
+    'stream_filter',  # Source 3
+    'stream_for_each',  # Source 3
+    'stream_length',  # Source 3
+    'stream_map',  # Source 3
+    'stream_member',  # Source 3
+    'stream_ref',  # Source 3
+    'stream_remove',  # Source 3
+    'stream_remove_all',  # Source 3
+    'stream_reverse',  # Source 3
+    'stream_tail',  # Source 3
+    'stream_to_list',  # Source 3
+    'tail',  # Source 2
+    'stringify',  # Source 1
+    'prompt',  # Source 1
 ]
 
 
