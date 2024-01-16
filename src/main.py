@@ -1,7 +1,7 @@
 import sys
 from typing import Callable
 
-from interpreter import read_header
+from interpreter import read_constants, read_header
 from utils import State
 
 
@@ -24,6 +24,8 @@ def main(args: list[str]) -> None:
     if not ok:
         cleanup()
         return
+
+    constants = read_constants(reader, config['constant_pool_count'])
 
     while True:
         data = reader(1)

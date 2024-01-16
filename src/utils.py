@@ -3,6 +3,7 @@ from typing import Callable, TypedDict
 
 class State(TypedDict):
     entrypoint: int
+    constant_pool_count: int
 
 
 def _to_int(b: bytes, size: int) -> int:
