@@ -1,7 +1,7 @@
 import sys
 from typing import Callable
 
-from interpreter import read_constants, read_header
+from interpreter import _read_function, main_loop, read_constants, read_header
 from utils import State
 
 
@@ -25,13 +25,19 @@ def main(args: list[str]) -> None:
         cleanup()
         return
 
-    constants = read_constants(reader, config['constant_pool_count'])
+    # Header is 16 bytes
+    constants = read_constants(reader, config['constant_pool_count'], 16)
 
-    while True:
-        data = reader(1)
-        if not data:
-            break
-        print(data)
+    # FIXME: Implement
+    _read_function(reader)
+
+    main_loop(reader, constants)
+
+    # while True:
+    #     data = reader(1)
+    #     if not data:
+    #         break
+    #     print(data)
 
     cleanup()
 

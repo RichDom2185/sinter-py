@@ -1,5 +1,5 @@
-from primitives import call_primitive_function
-from utils import read_i32, read_u8
+from instructions.primitives import call_primitive_function
+from utils import read_i32, read_u8, read_u32
 
 
 # TODO: Implement the rest of the instructions
@@ -20,7 +20,9 @@ def _handle_lgc_i(*args):
 
 
 def _handle_lgc_s(reader, stack, env, constants):
-    stack.append(read_i32(reader))
+    addr = read_u32(reader)
+    # FIXME: Abstraction violation
+    stack.append(constants[addr][2].decode('utf-8'))
 
 
 def _handle_call_p(reader, stack, env, constants):

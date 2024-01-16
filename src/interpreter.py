@@ -1,6 +1,7 @@
 from typing import Callable
 
-from utils import State, read_u16, read_u32
+from instructions.instructions import INSTRUCTIONS, handlers
+from utils import State, read_u8, read_u16, read_u32
 
 # SVML Specification Reference:
 # https://github.com/source-academy/js-slang/wiki/SVML-Specification
@@ -49,16 +50,19 @@ def _read_constant(reader: Callable[[int], bytes]):
     return (t, l, d), 6 + l
 
 
-def read_constants(reader: Callable[[int], bytes], num_constants: int):
-    constants = []
+def read_constants(reader: Callable[[int], bytes], num_constants: int, start_addr: int = 0):
+    constants = {}
 
+    current_addr = start_addr
     for _ in range(num_constants):
         c, num_bytes = _read_constant(reader)
-        constants.append(c)
+        constants[current_addr] = c
 
         # Each constant should be aligned to 4 bytes
         padding = (4 - (num_bytes % 4)) % 4
         reader(padding)
+
+        current_addr += num_bytes + padding
 
     return constants
 
@@ -71,3 +75,37 @@ def read_constants(reader: Callable[[int], bytes], num_constants: int):
 # | Number of arguments | u8   |
 # | Padding (alignment) | u8   |
 # | Code Instruction    | []   |
+
+def _read_function(reader: Callable[[int], bytes]):
+    stack_size = read_u8(reader)
+    env_size = read_u8(reader)
+    num_args = read_u8(reader)
+    padding = read_u8(reader)
+
+    return (stack_size, env_size, num_args), 4
+
+
+# Instruction structure
+# | Field    | Type |
+# | -------- | ---- |
+# | Opcode   | u8   |
+# | Operands | any  |
+
+def main_loop(reader: Callable[[int], bytes], constants):
+    stack = []
+    env = {}
+
+    while True:
+        try:
+            # Read instruction
+            opcode = read_u8(reader)
+        # FIXME: Abstraction violation
+        except AssertionError:
+            # EOF
+            return
+
+        # FIXME: Abstraction violation
+        # Get instruction
+        ins = INSTRUCTIONS[opcode]
+        # Execute instruction
+        handlers[ins](reader, stack, env, constants)

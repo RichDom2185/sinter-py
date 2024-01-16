@@ -1,4 +1,6 @@
-from handlers import *
+from instructions.handlers import (_handle_call_p, _handle_ldc_i,
+                                   _handle_lgc_i, _handle_lgc_s, _handle_noop,
+                                   _handle_notimplemented, _handle_ret_g)
 
 # Must match the order of the instructions in the wiki
 # https://github.com/source-academy/js-slang/wiki/SVML-Instruction-Set#machine-parseable-instruction-set
@@ -158,7 +160,7 @@ handlers = {
     'jmp': _handle_notimplemented,
     'call': _handle_notimplemented,
     'call.t': _handle_notimplemented,
-    'call.p': _handle_notimplemented,
+    'call.p': _handle_call_p,
     'call.t.p': _handle_notimplemented,
     'call.v': _handle_notimplemented,
     'call.t.v': _handle_notimplemented,
