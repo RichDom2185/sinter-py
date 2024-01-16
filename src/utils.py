@@ -1,3 +1,4 @@
+import struct
 from typing import Callable, TypedDict
 
 
@@ -33,3 +34,16 @@ def read_i16(reader: Callable[[int], bytes]) -> int:
 
 def read_i32(reader: Callable[[int], bytes]) -> int:
     return _to_int(reader(4), 4, signed=True)
+
+
+def _to_float(b: bytes, size: int, format: str) -> float:
+    assert len(b) == size
+    return struct.unpack(format, b)[0]
+
+
+def read_f32(reader: Callable[[int], bytes]) -> float:
+    return _to_float(reader(4), 4, '<f')
+
+
+def read_f64(reader: Callable[[int], bytes]) -> float:
+    return _to_float(reader(8), 8, '<d')
