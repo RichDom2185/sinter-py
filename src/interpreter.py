@@ -1,6 +1,6 @@
 from typing import Callable
 
-from instructions.instructions import INSTRUCTIONS, handlers
+from instructions.instructions import get_and_execute
 from utils import State, read_u8, read_u16, read_u32
 
 # SVML Specification Reference:
@@ -100,12 +100,6 @@ def main_loop(reader: Callable[[int], bytes], constants):
             # Read instruction
             opcode = read_u8(reader)
         # FIXME: Abstraction violation
-        except AssertionError:
-            # EOF
+        except AssertionError:  # EOF
             return
-
-        # FIXME: Abstraction violation
-        # Get instruction
-        ins = INSTRUCTIONS[opcode]
-        # Execute instruction
-        handlers[ins](reader, stack, env, constants)
+        get_and_execute(opcode, reader, stack, env, constants)

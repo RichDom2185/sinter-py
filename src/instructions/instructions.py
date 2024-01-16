@@ -1,6 +1,4 @@
-from instructions.handlers import (_handle_call_p, _handle_ldc_i,
-                                   _handle_lgc_i, _handle_lgc_s, _handle_noop,
-                                   _handle_notimplemented, _handle_ret_g)
+from instructions.handlers import *
 
 # Must match the order of the instructions in the wiki
 # https://github.com/source-academy/js-slang/wiki/SVML-Instruction-Set#machine-parseable-instruction-set
@@ -93,90 +91,22 @@ INSTRUCTIONS = [
 ]
 
 
-handlers = {
-    'nop': _handle_noop,
-    'ldc.i': _handle_ldc_i,
-    'lgc.i': _handle_lgc_i,
-    'ldc.f32': _handle_notimplemented,
-    'lgc.f32': _handle_notimplemented,
-    'ldc.f64': _handle_notimplemented,
-    'lgc.f64': _handle_notimplemented,
-    'ldc.b.0': _handle_notimplemented,
-    'ldc.b.1': _handle_notimplemented,
-    'lgc.b.0': _handle_notimplemented,
-    'lgc.b.1': _handle_notimplemented,
-    'lgc.u': _handle_notimplemented,
-    'lgc.n': _handle_notimplemented,
-    'lgc.s': _handle_lgc_s,
-    'pop.g': _handle_notimplemented,
-    'pop.b': _handle_notimplemented,
-    'pop.f': _handle_notimplemented,
-    'add.g': _handle_notimplemented,
-    'add.f': _handle_notimplemented,
-    'sub.g': _handle_notimplemented,
-    'sub.f': _handle_notimplemented,
-    'mul.g': _handle_notimplemented,
-    'mul.f': _handle_notimplemented,
-    'div.g': _handle_notimplemented,
-    'div.f': _handle_notimplemented,
-    'mod.g': _handle_notimplemented,
-    'mod.f': _handle_notimplemented,
-    'not.g': _handle_notimplemented,
-    'not.b': _handle_notimplemented,
-    'lt.g': _handle_notimplemented,
-    'lt.f': _handle_notimplemented,
-    'gt.g': _handle_notimplemented,
-    'gt.f': _handle_notimplemented,
-    'le.g': _handle_notimplemented,
-    'le.f': _handle_notimplemented,
-    'ge.g': _handle_notimplemented,
-    'ge.f': _handle_notimplemented,
-    'eq.g': _handle_notimplemented,
-    'eq.f': _handle_notimplemented,
-    'eq.b': _handle_notimplemented,
-    'new.c': _handle_notimplemented,
-    'new.a': _handle_notimplemented,
-    'ldl.g': _handle_notimplemented,
-    'ldl.f': _handle_notimplemented,
-    'ldl.b': _handle_notimplemented,
-    'stl.g': _handle_notimplemented,
-    'stl.b': _handle_notimplemented,
-    'stl.f': _handle_notimplemented,
-    'ldp.g': _handle_notimplemented,
-    'ldp.f': _handle_notimplemented,
-    'ldp.b': _handle_notimplemented,
-    'stp.g': _handle_notimplemented,
-    'stp.b': _handle_notimplemented,
-    'stp.f': _handle_notimplemented,
-    'lda.g': _handle_notimplemented,
-    'lda.b': _handle_notimplemented,
-    'lda.f': _handle_notimplemented,
-    'sta.g': _handle_notimplemented,
-    'sta.b': _handle_notimplemented,
-    'sta.f': _handle_notimplemented,
-    'br.t': _handle_notimplemented,
-    'br.f': _handle_notimplemented,
-    'br': _handle_notimplemented,
-    'jmp': _handle_notimplemented,
-    'call': _handle_notimplemented,
-    'call.t': _handle_notimplemented,
-    'call.p': _handle_call_p,
-    'call.t.p': _handle_notimplemented,
-    'call.v': _handle_notimplemented,
-    'call.t.v': _handle_notimplemented,
-    'ret.g': _handle_ret_g,
-    'ret.f': _handle_notimplemented,
-    'ret.b': _handle_notimplemented,
-    'ret.u': _handle_notimplemented,
-    'ret.n': _handle_notimplemented,
-    'dup': _handle_notimplemented,
-    'newenv': _handle_notimplemented,
-    'popenv': _handle_notimplemented,
-    'new.c.p': _handle_notimplemented,
-    'new.c.v': _handle_notimplemented,
-    'neg.g': _handle_notimplemented,
-    'neg.f': _handle_notimplemented,
-    'neq.g': _handle_notimplemented,
-    'neq.f': _handle_notimplemented,
-    'neq.b': _handle_notimplemented,
+def _handle_notimplemented(reader, stack, env, constants):
+    raise NotImplementedError()
+
+
+# TODO: Implement the rest of the instructions
+INSTRUCTIONS_HANDLERS = {
+    'nop': handle_noop,
+    'ldc.i': handle_ldc_i,
+    'lgc.i': handle_lgc_i,
+    'lgc.s': handle_lgc_s,
+    'call.p': handle_call_p,
+    'ret.g': handle_ret_g,
 }
+
+
+def get_and_execute(opcode, reader, stack, env, constants):
+    ins_name = INSTRUCTIONS[opcode]
+    handler = INSTRUCTIONS_HANDLERS.get(ins_name, _handle_notimplemented)
+    handler(reader, stack, env, constants)
