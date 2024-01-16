@@ -1,4 +1,5 @@
 import math
+from random import random
 
 # Must match the order of the functions in the wiki
 # https://github.com/source-academy/js-slang/wiki/SVML-Instruction-Set#primitive-functions
@@ -103,7 +104,18 @@ def _handle_notimplemented(*args):
 
 
 IMPLEMENTED_FUNCTIONS = {
+    # TODO: Wrap with a lambda to ensure only correct arity
     'display': print,
+    'is_array': lambda x: type(x) is list,
+    'is_boolean': lambda x: type(x) is bool,
+    'is_function': _handle_notimplemented,
+    'is_list': _handle_notimplemented,
+    'is_null': lambda x: x is None,
+    'is_number': lambda x: type(x) is int or type(x) is float,
+    'is_pair': lambda x: type(x) is list and len(x) == 2,
+    'is_stream': _handle_notimplemented,
+    'is_string': lambda x: type(x) is str,
+    'is_undefined': _handle_notimplemented,
     'math_abs': abs,
     'math_acos': math.acos,
     'math_acosh': math.acosh,
@@ -114,7 +126,7 @@ IMPLEMENTED_FUNCTIONS = {
     'math_atanh': math.atanh,
     'math_cbrt': lambda x: x ** (1 / 3),
     'math_ceil': math.ceil,
-    'math_clz32': _handle_notimplemented,
+    'math_clz32': lambda x: 32 - int(x).bit_length() if x >= 0 else 0,
     'math_cos': math.cos,
     'math_cosh': math.cosh,
     'math_exp': math.exp,
@@ -131,9 +143,9 @@ IMPLEMENTED_FUNCTIONS = {
     'math_max': max,
     'math_min': min,
     'math_pow': math.pow,
-    'math_random': _handle_notimplemented,
+    'math_random': random,
     'math_round': _handle_notimplemented,
-    'math_sign': _handle_notimplemented,
+    'math_sign': lambda x: 1 if x > 0 else -1 if x < 0 else 0,
     'math_sin': math.sin,
     'math_sinh': math.sinh,
     'math_sqrt': math.sqrt,
