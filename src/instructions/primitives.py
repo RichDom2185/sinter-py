@@ -1,3 +1,5 @@
+import math
+
 # Must match the order of the functions in the wiki
 # https://github.com/source-academy/js-slang/wiki/SVML-Instruction-Set#primitive-functions
 PRIMITIVE_FUNCTIONS = [
@@ -95,13 +97,50 @@ PRIMITIVE_FUNCTIONS = [
     'prompt',
 ]
 
-IMPLEMENTED_FUNCTIONS = {
-    'display': print,
-}
-
 
 def _handle_notimplemented(*args):
     raise NotImplementedError()
+
+
+IMPLEMENTED_FUNCTIONS = {
+    'display': print,
+    'math_abs': abs,
+    'math_acos': math.acos,
+    'math_acosh': math.acosh,
+    'math_asin': math.asin,
+    'math_asinh': math.asinh,
+    'math_atan': math.atan,
+    'math_atan2': math.atan2,
+    'math_atanh': math.atanh,
+    'math_cbrt': lambda x: x ** (1 / 3),
+    'math_ceil': math.ceil,
+    'math_clz32': _handle_notimplemented,
+    'math_cos': math.cos,
+    'math_cosh': math.cosh,
+    'math_exp': math.exp,
+    'math_expm1': math.expm1,
+    'math_floor': math.floor,
+    'math_fround': _handle_notimplemented,
+    'math_hypot': math.hypot,
+    'math_imul': _handle_notimplemented,
+    # We wrap with a lambda to ensure only correct arity
+    'math_log': lambda x: math.log(x),
+    'math_log1p': math.log1p,
+    'math_log2': math.log2,
+    'math_log10': math.log10,
+    'math_max': max,
+    'math_min': min,
+    'math_pow': math.pow,
+    'math_random': _handle_notimplemented,
+    'math_round': _handle_notimplemented,
+    'math_sign': _handle_notimplemented,
+    'math_sin': math.sin,
+    'math_sinh': math.sinh,
+    'math_sqrt': math.sqrt,
+    'math_tan': math.tan,
+    'math_tanh': math.tanh,
+    'math_trunc': math.trunc,
+}
 
 
 def call_primitive_function(id: int, *args):
