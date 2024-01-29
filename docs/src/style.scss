@@ -39,3 +39,11 @@ body {
   border-radius: $radius-large;
   overflow: hidden;
 }
+
+.bulma-loader-mixin {
+  @include loader;
+}
+
+.inline-block {
+  display: inline-block;
+}

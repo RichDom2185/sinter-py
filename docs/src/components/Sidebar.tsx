@@ -1,4 +1,6 @@
 import { FunctionComponent } from "preact";
+import { useState } from "preact/hooks";
+import { usePyodide } from "../utils/python";
 import Toolbar from "./Toolbar";
 
 type Props = {
@@ -12,6 +14,9 @@ const Sidebar: FunctionComponent<Props> = ({
   handleClickCompile,
   output = "",
 }) => {
+  const pyodide = usePyodide();
+  const [pyOutput, setPyOutput] = useState<string | null>(null);
+
   return (
     <div>
       <Toolbar
@@ -37,9 +42,22 @@ const Sidebar: FunctionComponent<Props> = ({
           <b>Step 2:</b> Interpret compiled SVML in Python using sinter-py
         </p>
       </div>
-      <pre>
-        <i>Coming soon!</i>
-      </pre>
+      <div className="block">
+        {pyodide ? (
+          <pre>
+            {pyOutput !== null ? (
+              <code>{pyOutput}</code>
+            ) : (
+              <i>Click "Run" to show Python output.</i>
+            )}
+          </pre>
+        ) : (
+          <pre className="block">
+            <span className="bulma-loader-mixin inline-block" />
+            <span>&nbsp;&nbsp;Loading Python interpreter&hellip;</span>
+          </pre>
+        )}
+      </div>
     </div>
   );
 };

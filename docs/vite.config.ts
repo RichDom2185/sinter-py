@@ -6,6 +6,7 @@ export default defineConfig({
   resolve: {
     alias: {
       path: "path-browserify",
+      "node-fetch": "isomorphic-fetch",
     },
   },
   plugins: [
