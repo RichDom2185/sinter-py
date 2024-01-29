@@ -1,3 +1,7 @@
+import { saveAs } from "file-saver";
+import { assemble } from "js-slang";
+import { Program } from "js-slang/dist/vm/svml-compiler";
+import { stringifyProgram } from "js-slang/dist/vm/util";
 import { FunctionComponent } from "preact";
 import { useState } from "preact/hooks";
 import interpreter from "../lib/sinter-py.py?raw";
@@ -5,7 +9,7 @@ import { usePyodide } from "../utils/python";
 import Toolbar from "./Toolbar";
 
 type Props = {
-  handleClickCompile: () => string;
+  handleClickCompile: () => Program;
 };
 
 const Sidebar: FunctionComponent<Props> = ({ handleClickCompile }) => {
@@ -14,13 +18,13 @@ const Sidebar: FunctionComponent<Props> = ({ handleClickCompile }) => {
   const [pyOutput, setPyOutput] = useState<string | null>(null);
 
   const handleCompile = () => {
-    const asmOutput = handleClickCompile();
-    setAsmOutput(asmOutput);
+    const asm = handleClickCompile();
+    setAsmOutput(stringifyProgram(asm).trim());
   };
 
   const handleCompileAndRun = () => {
-    const asmOutput = handleClickCompile();
-    setAsmOutput(asmOutput);
+    const asm = handleClickCompile();
+    setAsmOutput(stringifyProgram(asm).trim());
     if (!pyodide) {
       return;
     }
@@ -28,11 +32,19 @@ const Sidebar: FunctionComponent<Props> = ({ handleClickCompile }) => {
     pyodide.runPython(interpreter);
   };
 
+  const handleSaveAs = () => {
+    const asm = handleClickCompile();
+    const bin = assemble(asm);
+    const blob = new Blob([bin], { type: "application/octet-stream" });
+    saveAs(blob, "program.svm");
+  };
+
   return (
     <div>
       <Toolbar
         handleClickRun={handleCompileAndRun}
         handleClickCompile={handleCompile}
+        handleClickSaveAs={handleSaveAs}
       />
       <div className="block">
         <p>
