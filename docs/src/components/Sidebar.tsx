@@ -1,27 +1,38 @@
 import { FunctionComponent } from "preact";
 import { useState } from "preact/hooks";
+import interpreter from "../lib/sinter-py.py?raw";
 import { usePyodide } from "../utils/python";
 import Toolbar from "./Toolbar";
 
 type Props = {
-  handleClickRun: () => void;
-  handleClickCompile: () => void;
-  output?: string;
+  handleClickCompile: () => string;
 };
 
-const Sidebar: FunctionComponent<Props> = ({
-  handleClickRun,
-  handleClickCompile,
-  output = "",
-}) => {
+const Sidebar: FunctionComponent<Props> = ({ handleClickCompile }) => {
   const pyodide = usePyodide();
+  const [asmOutput, setAsmOutput] = useState<string | null>(null);
   const [pyOutput, setPyOutput] = useState<string | null>(null);
+
+  const handleCompile = () => {
+    const asmOutput = handleClickCompile();
+    setAsmOutput(asmOutput);
+  };
+
+  const handleCompileAndRun = () => {
+    const asmOutput = handleClickCompile();
+    setAsmOutput(asmOutput);
+    if (!pyodide) {
+      return;
+    }
+
+    pyodide.runPython(interpreter);
+  };
 
   return (
     <div>
       <Toolbar
-        handleClickRun={handleClickRun}
-        handleClickCompile={handleClickCompile}
+        handleClickRun={handleCompileAndRun}
+        handleClickCompile={handleCompile}
       />
       <div className="block">
         <p>
@@ -30,8 +41,8 @@ const Sidebar: FunctionComponent<Props> = ({
       </div>
       <div className="block">
         <pre>
-          {output ? (
-            <code>{output}</code>
+          {asmOutput ? (
+            <code>{asmOutput}</code>
           ) : (
             <i>Click "Run" to show SVML representation.</i>
           )}

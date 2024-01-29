@@ -8,13 +8,12 @@ import Sidebar from "./components/Sidebar";
 
 const App: FunctionComponent = () => {
   const [code, setCode] = useState("");
-  const [asmOutput, setAsmOutput] = useState("");
 
   const handleCompile = () => {
     const asmOutput = stringifyProgram(
       compile(code, createContext(Chapter.SOURCE_3))
     );
-    setAsmOutput(asmOutput.trim());
+    return asmOutput.trim();
   };
 
   return (
@@ -30,11 +29,7 @@ const App: FunctionComponent = () => {
           <Editor value={code} onChange={setCode} />
         </div>
         <div className="column">
-          <Sidebar
-            output={asmOutput}
-            handleClickRun={handleCompile}
-            handleClickCompile={handleCompile}
-          />
+          <Sidebar handleClickCompile={handleCompile} />
         </div>
       </div>
     </div>
