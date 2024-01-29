@@ -32,6 +32,7 @@ const Sidebar: FunctionComponent<Props> = ({ handleClickCompile }) => {
       return;
     }
 
+    setPyOutput(null);
     pyodide.runPython(interpreter);
   };
 
