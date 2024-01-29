@@ -23,7 +23,7 @@
     "fast-levenshtein": "^3.0.0",
     "sass": "^1.70.0",
     "typescript": "^5.3.3",
-    "vite": "^4.3.2"
+    "vite": "^5.0.12"
   },
   "resolutions": {
     "**/gl": "^6.0.0"
