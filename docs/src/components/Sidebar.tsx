@@ -13,7 +13,10 @@ type Props = {
 };
 
 const Sidebar: FunctionComponent<Props> = ({ handleClickCompile }) => {
-  const pyodide = usePyodide();
+  const pyodide = usePyodide({
+    redirectStdout: (v) => setPyOutput((prev) => (prev ? `${prev}\n${v}` : v)),
+    redirectStderr: (v) => setPyOutput((prev) => (prev ? `${prev}\n${v}` : v)),
+  });
   const [asmOutput, setAsmOutput] = useState<string | null>(null);
   const [pyOutput, setPyOutput] = useState<string | null>(null);
 

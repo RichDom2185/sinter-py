@@ -1,6 +1,5 @@
 import { compile, createContext } from "js-slang";
 import { Chapter } from "js-slang/dist/types";
-import { stringifyProgram } from "js-slang/dist/vm/util";
 import { FunctionComponent } from "preact";
 import { useState } from "preact/hooks";
 import Editor from "./components/Editor";
@@ -10,10 +9,7 @@ const App: FunctionComponent = () => {
   const [code, setCode] = useState("");
 
   const handleCompile = () => {
-    const asmOutput = stringifyProgram(
-      compile(code, createContext(Chapter.SOURCE_3))
-    );
-    return asmOutput.trim();
+    return compile(code, createContext(Chapter.SOURCE_3));
   };
 
   return (
