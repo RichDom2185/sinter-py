@@ -14,8 +14,6 @@
     "js-slang": "^1.0.37",
     "path-browserify": "^1.0.1",
     "preact": "^10.13.1",
-    "preact-iso": "^2.3.2",
-    "preact-render-to-string": "^6.3.1",
     "pyodide": "^0.25.0",
     "react-ace": "^10.1.0"
   },

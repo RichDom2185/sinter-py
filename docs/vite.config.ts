@@ -4,17 +4,16 @@ import { defineConfig } from "vite";
 // https://vitejs.dev/config/
 export default defineConfig({
   resolve: {
-    alias: {
-      path: "path-browserify",
-      "node-fetch": "isomorphic-fetch",
-    },
-  },
-  plugins: [
-    preact({
-      prerender: {
-        enabled: true,
-        renderTarget: "#app",
+    alias: [
+      { find: "path", replacement: "path-browserify" },
+      { find: "node-fetch", replacement: "isomorphic-fetch" },
+      // Use UMD bundle for xmlhttprequest-ts dependency
+      {
+        find: "xmlhttprequest-ts",
+        replacement:
+          "./node_modules/xmlhttprequest-ts/bundles/xmlhttprequest-ts.umd.js",
       },
-    }),
-  ],
+    ],
+  },
+  plugins: [preact()],
 });

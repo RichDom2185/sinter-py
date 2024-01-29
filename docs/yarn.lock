@@ -1701,18 +1701,6 @@ postcss@^8.4.27:
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
-preact-iso@^2.3.2:
-  version "2.3.2"
-  resolved "https://registry.yarnpkg.com/preact-iso/-/preact-iso-2.3.2.tgz#226d4112e602df0209c903f507c8d6370c5a36c9"
-  integrity sha512-OU+6dzX1/qAyWfH4zKVqp/apNLfAr8yx4aBUVKyBWoOyPT08bNJk4o08KWIwyQyEkpayW5q+5+GAkYBSky8ndw==
-
-preact-render-to-string@^6.3.1:
-  version "6.3.1"
-  resolved "https://registry.yarnpkg.com/preact-render-to-string/-/preact-render-to-string-6.3.1.tgz#2479ebca8e6721cacfcecaa79bd861005a3d9b8f"
-  integrity sha512-NQ28WrjLtWY6lKDlTxnFpKHZdpjfF+oE6V4tZ0rTrunHrtZp6Dm0oFrcJalt/5PNeqJz4j1DuZDS0Y6rCBoqDA==
-  dependencies:
-    pretty-format "^3.8.0"
-
 preact@^10.13.1:
   version "10.19.3"
   resolved "https://registry.yarnpkg.com/preact/-/preact-10.19.3.tgz#7a7107ed2598a60676c943709ea3efb8aaafa899"
@@ -1735,11 +1723,6 @@ prebuild-install@^7.1.1:
     simple-get "^4.0.0"
     tar-fs "^2.0.0"
     tunnel-agent "^0.6.0"
-
-pretty-format@^3.8.0:
-  version "3.8.0"
-  resolved "https://registry.yarnpkg.com/pretty-format/-/pretty-format-3.8.0.tgz#bfbed56d5e9a776645f4b1ff7aa1a3ac4fa3c385"
-  integrity sha512-WuxUnVtlWL1OfZFQFuqvnvs6MiAGk9UNsBostyBOB0Is9wb5uRESevA6rnl/rkksXaGX3GzZhPup5d6Vp1nFew==
 
 promise-inflight@^1.0.1:
   version "1.0.1"
