@@ -11,10 +11,10 @@
     "bulma": "^0.9.4",
     "file-saver": "^2.0.5",
     "isomorphic-fetch": "^3.0.0",
-    "js-slang": "^1.0.57",
+    "js-slang": "^1.0.65",
     "path-browserify": "^1.0.1",
-    "preact": "^10.20.1",
-    "pyodide": "^0.25.0",
+    "preact": "^10.20.2",
+    "pyodide": "^0.25.1",
     "react-ace": "^11.0.1"
   },
   "devDependencies": {

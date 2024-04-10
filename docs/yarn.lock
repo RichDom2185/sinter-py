@@ -1379,10 +1379,10 @@ js-base64@^3.7.5:
   resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-3.7.7.tgz#e51b84bf78fbf5702b9541e2cb7bfcb893b43e79"
   integrity sha512-7rCnleh0z2CkXhH67J8K1Ytz0b2Y+yxTPL+/KOJoa20hfnVQ/3/T6W/KflYI4bRHRagNeXeU2bkNGI3v1oS/lw==
 
-js-slang@^1.0.57:
-  version "1.0.57"
-  resolved "https://registry.yarnpkg.com/js-slang/-/js-slang-1.0.57.tgz#e52a6c1fe4e6ba2516dddaf50d632ad7d263ec04"
-  integrity sha512-iQPfmZLe7oTygVE+n7vlpRy224/GYx7TgvjG/bxuN0Ydnr9TTqwrvZ7B6IZF89j+3Z3PbGtVIFJLD9NLd+l25g==
+js-slang@^1.0.65:
+  version "1.0.65"
+  resolved "https://registry.yarnpkg.com/js-slang/-/js-slang-1.0.65.tgz#61356a93d48e5e6ac9a252529eef3a847ef76b01"
+  integrity sha512-0atWwWjfN8uLsw27P6rnW/AjtQc+RVliQ5H/stDHYpDTafOogAeY11Nq82qndn/r6SIX8FpPOl9OgXhNMkq2rw==
   dependencies:
     "@babel/parser" "^7.19.4"
     "@joeychenofficial/alt-ergo-modified" "^2.4.0"
@@ -1398,7 +1398,6 @@ js-slang@^1.0.57:
     lodash "^4.17.21"
     node-getopt "^0.3.2"
     source-map "0.7.3"
-    xmlhttprequest-ts "^1.0.1"
 
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
@@ -1754,10 +1753,10 @@ postcss@^8.4.38:
     picocolors "^1.0.0"
     source-map-js "^1.2.0"
 
-preact@^10.20.1:
-  version "10.20.1"
-  resolved "https://registry.yarnpkg.com/preact/-/preact-10.20.1.tgz#1bc598ab630d8612978f7533da45809a8298542b"
-  integrity sha512-JIFjgFg9B2qnOoGiYMVBtrcFxHqn+dNXbq76bVmcaHYJFYR4lW67AOcXgAYQQTDYXDOg/kTZrKPNCdRgJ2UJmw==
+preact@^10.20.2:
+  version "10.20.2"
+  resolved "https://registry.yarnpkg.com/preact/-/preact-10.20.2.tgz#0b343299a8c020562311cc25db93b3d832ec5e71"
+  integrity sha512-S1d1ernz3KQ+Y2awUxKakpfOg2CEmJmwOP+6igPx6dgr6pgDvenqYviyokWso2rhHvGtTlWWnJDa7RaPbQerTg==
 
 prebuild-install@^7.1.1:
   version "7.1.2"
@@ -1807,10 +1806,10 @@ pump@^3.0.0:
     end-of-stream "^1.1.0"
     once "^1.3.1"
 
-pyodide@^0.25.0:
-  version "0.25.0"
-  resolved "https://registry.yarnpkg.com/pyodide/-/pyodide-0.25.0.tgz#0c75d31ffbb65f7f2e2686dfeeb809c73e4d571a"
-  integrity sha512-RagtX3TfV2M0QAfThG2SMvwE31ikqAFDUXc5/4xhppEoVf4VbL7L0kbKOIdSNg7MbVsHELVxftk66WvT926GpA==
+pyodide@^0.25.1:
+  version "0.25.1"
+  resolved "https://registry.yarnpkg.com/pyodide/-/pyodide-0.25.1.tgz#80114f84b8eaf7e7dc53477b96d71fb7b1bbf6ae"
+  integrity sha512-y0nJ/fLA3bxD2iZRzvVTbP2O+wp4Ewm2wThfV4HF0BytQ6hsoqTJFLNY4usLOcCVBrK8TTWqFqrmsVPzHe4rsw==
   dependencies:
     base-64 "^1.0.0"
     ws "^8.5.0"
@@ -2157,11 +2156,6 @@ tr46@~0.0.3:
   resolved "https://registry.yarnpkg.com/tr46/-/tr46-0.0.3.tgz#8184fd347dac9cdc185992f3a6622e14b9d9ab6a"
   integrity sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==
 
-tslib@^1.9.2:
-  version "1.14.1"
-  resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
-  integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
-
 tunnel-agent@^0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/tunnel-agent/-/tunnel-agent-0.6.0.tgz#27a5dea06b36b04a0a9966774b290868f0fc40fd"
@@ -2276,13 +2270,6 @@ ws@^8.5.0:
   version "8.16.0"
   resolved "https://registry.yarnpkg.com/ws/-/ws-8.16.0.tgz#d1cd774f36fbc07165066a60e40323eab6446fd4"
   integrity sha512-HS0c//TP7Ina87TfiPUz1rQzMhHrl/SG2guqRcTOIUYD2q8uhUdNHZYJUaQ8aTGPzCh+c6oawMKW35nFl1dxyQ==
-
-xmlhttprequest-ts@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/xmlhttprequest-ts/-/xmlhttprequest-ts-1.0.1.tgz#7b3cb4a197aee38cf2d4f9dd6189d1d21f0835b2"
-  integrity sha512-x+7u8NpBcwfBCeGqUpdGrR6+kGUGVjKc4wolyCz7CQqBZQp7VIyaF1xAvJ7ApRzvLeuiC4BbmrA6CWH9NqxK/g==
-  dependencies:
-    tslib "^1.9.2"
 
 "xtend@>=4.0.0 <4.1.0-0":
   version "4.0.2"
