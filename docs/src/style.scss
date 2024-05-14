@@ -27,13 +27,6 @@ body {
   margin: 0 auto;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    color: #ccc;
-    background-color: #1a1a1a;
-  }
-}
-
 .editor {
   font-family: "IBM Plex Mono", monospace;
   border-radius: $radius-large;
