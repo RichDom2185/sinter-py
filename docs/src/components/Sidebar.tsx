@@ -9,7 +9,7 @@ import { usePyodide } from "../utils/python";
 import Toolbar from "./Toolbar";
 
 type Props = {
-  handleClickCompile: () => Program;
+  handleClickCompile: () => Promise<Program>;
 };
 
 const Sidebar: FunctionComponent<Props> = ({ handleClickCompile }) => {
@@ -20,13 +20,13 @@ const Sidebar: FunctionComponent<Props> = ({ handleClickCompile }) => {
   const [asmOutput, setAsmOutput] = useState<string | null>(null);
   const [pyOutput, setPyOutput] = useState<string | null>(null);
 
-  const handleCompile = () => {
-    const asm = handleClickCompile();
+  const handleCompile = async () => {
+    const asm = await handleClickCompile();
     setAsmOutput(stringifyProgram(asm).trim());
   };
 
-  const handleCompileAndRun = () => {
-    const asm = handleClickCompile();
+  const handleCompileAndRun = async () => {
+    const asm = await handleClickCompile();
     setAsmOutput(stringifyProgram(asm).trim());
     if (!pyodide) {
       return;
@@ -36,8 +36,8 @@ const Sidebar: FunctionComponent<Props> = ({ handleClickCompile }) => {
     pyodide.runPython(interpreter);
   };
 
-  const handleSaveAs = () => {
-    const asm = handleClickCompile();
+  const handleSaveAs = async () => {
+    const asm = await handleClickCompile();
     const bin = assemble(asm);
     const blob = new Blob([bin], { type: "application/octet-stream" });
     saveAs(blob, "program.svm");
