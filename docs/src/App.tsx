@@ -1,4 +1,4 @@
-import { compile, createContext } from "js-slang";
+import { compileFiles, createContext } from "js-slang";
 import { Chapter } from "js-slang/dist/types";
 import { FunctionComponent } from "preact";
 import { useState } from "preact/hooks";
@@ -9,7 +9,11 @@ const App: FunctionComponent = () => {
   const [code, setCode] = useState("");
 
   const handleCompile = () => {
-    return compile(code, createContext(Chapter.SOURCE_3));
+    return compileFiles(
+      { "/main.js": code },
+      "/main.js",
+      createContext(Chapter.SOURCE_3)
+    );
   };
 
   return (
