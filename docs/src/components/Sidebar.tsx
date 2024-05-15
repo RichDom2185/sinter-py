@@ -3,8 +3,8 @@ import { assemble } from "js-slang";
 import { Program } from "js-slang/dist/vm/svml-compiler";
 import { stringifyProgram } from "js-slang/dist/vm/util";
 import { FunctionComponent } from "preact";
-import { useState } from "preact/hooks";
-import interpreter from "../lib/sinter-py.py?raw";
+import { useEffect, useState } from "preact/hooks";
+import { setupInterpreter } from "../lib/setupInterpreter";
 import { usePyodide } from "../utils/python";
 import Toolbar from "./Toolbar";
 
@@ -20,6 +20,14 @@ const Sidebar: FunctionComponent<Props> = ({ handleClickCompile }) => {
   const [asmOutput, setAsmOutput] = useState<string | null>(null);
   const [pyOutput, setPyOutput] = useState<string | null>(null);
 
+  const [isFirstRun, setIsFirstRun] = useState(true);
+  useEffect(() => {
+    if (pyodide && isFirstRun) {
+      setupInterpreter(pyodide);
+      setIsFirstRun(false);
+    }
+  }, [pyodide, isFirstRun]);
+
   const handleCompile = async () => {
     const asm = await handleClickCompile();
     setAsmOutput(stringifyProgram(asm).trim());
@@ -33,7 +41,8 @@ const Sidebar: FunctionComponent<Props> = ({ handleClickCompile }) => {
     }
 
     setPyOutput(null);
-    pyodide.runPython(interpreter);
+    pyodide.globals.set("prgrm", assemble(asm));
+    pyodide.runPython(`exec(open('main.py').read())`);
   };
 
   const handleSaveAs = async () => {
