@@ -713,10 +713,10 @@ browserslist@^4.24.0:
     node-releases "^2.0.19"
     update-browserslist-db "^1.1.1"
 
-bulma@^0.9.4:
-  version "0.9.4"
-  resolved "https://registry.yarnpkg.com/bulma/-/bulma-0.9.4.tgz#0ca8aeb1847a34264768dba26a064c8be72674a1"
-  integrity sha512-86FlT5+1GrsgKbPLRRY7cGDg8fsJiP/jzTqXXVqiUZZ2aZT8uemEOHlU1CDU+TxklPEZ11HZNNWclRBBecP4CQ==
+bulma@^1.0.0:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/bulma/-/bulma-1.0.3.tgz#313c4fec8c356158a1d8f665586957a0991e2892"
+  integrity sha512-9eVXBrXwlU337XUXBjIIq7i88A+tRbJYAjXQjT/21lwam+5tpvKF0R7dCesre9N+HV9c6pzCNEPKrtgvBBes2g==
 
 caniuse-lite@^1.0.30001688:
   version "1.0.30001696"
