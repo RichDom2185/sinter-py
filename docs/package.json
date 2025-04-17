@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "ace-builds": "^1.36.3",
-    "bulma": "^0.9.4",
+    "bulma": "^1.0.0",
     "file-saver": "^2.0.5",
     "isomorphic-fetch": "^3.0.0",
     "js-slang": "^1.0.81",
