@@ -1,12 +1,15 @@
-name: Deploy Docs/Demo Site
+name: Run CI
 
 on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  build:
+  ci:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,11 +26,6 @@ jobs:
       - name: Install Dependencies
         working-directory: ./docs
         run: pnpm install --frozen-lockfile
-      - name: Build Docs
+      - name: Ensure Code Builds
         working-directory: ./docs
-        run: pnpm build --base=/sinter-py/
-      - name: Deploy Docs
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs/dist
+        run: pnpm build
