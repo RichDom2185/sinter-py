@@ -48,7 +48,7 @@ const Sidebar: FunctionComponent<Props> = ({ handleClickCompile }) => {
   const handleSaveAs = async () => {
     const asm = await handleClickCompile();
     const bin = assemble(asm);
-    const blob = new Blob([bin], { type: "application/octet-stream" });
+    const blob = new Blob([bin as any], { type: "application/octet-stream" });
     saveAs(blob, "program.svm");
   };
 

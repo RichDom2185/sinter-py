@@ -8,12 +8,12 @@ import Sidebar from "./components/Sidebar";
 const App: FunctionComponent = () => {
   const [code, setCode] = useState("");
 
-  const handleCompile = () => {
-    return compileFiles(
+  const handleCompile = async () => {
+    return (await compileFiles(
       { "/main.js": code },
       "/main.js",
       createContext(Chapter.SOURCE_3)
-    );
+    ))!;
   };
 
   return (
