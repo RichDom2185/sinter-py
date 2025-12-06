@@ -20,7 +20,7 @@ const App: FunctionComponent = () => {
     <div className="container">
       <section class="hero">
         <div class="hero-body">
-          <p class="title">sinter-py Demo</p>
+          <h1 class="title">sinter-py Demo</h1>
           <p class="subtitle">js-slang &rarr; SVML &rarr; Python</p>
         </div>
       </section>
