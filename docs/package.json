@@ -7,13 +7,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "ace-builds": "^1.36.3",
+    "ace-builds": "^1.43.5",
     "bulma": "^0.9.4",
     "file-saver": "^2.0.5",
     "isomorphic-fetch": "^3.0.0",
     "js-slang": "^1.0.85",
     "path-browserify": "^1.0.1",
-    "preact": "^10.20.2",
+    "preact": "^10.28.0",
     "pyodide": "^0.25.1",
     "react-ace": "^14.0.1"
   },
@@ -21,9 +21,9 @@
     "@preact/preset-vite": "^2.10.2",
     "@types/file-saver": "^2.0.7",
     "fast-levenshtein": "^3.0.0",
-    "sass": "^1.92.1",
-    "typescript": "^5.9.2",
-    "vite": "^7.1.11"
+    "sass": "^1.94.2",
+    "typescript": "^5.9.3",
+    "vite": "^7.2.6"
   },
   "packageManager": "pnpm@10.24.0+sha512.01ff8ae71b4419903b65c60fb2dc9d34cf8bb6e06d03bde112ef38f7a34d6904c424ba66bea5cdcf12890230bf39f9580473140ed9c946fef328b6e5238a345a"
 }
