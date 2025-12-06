@@ -14,7 +14,7 @@
     "js-slang": "^1.0.85",
     "path-browserify": "^1.0.1",
     "preact": "^10.28.0",
-    "pyodide": "^0.25.1",
+    "pyodide": "^0.29.0",
     "react-ace": "^14.0.1"
   },
   "devDependencies": {
