@@ -1,4 +1,6 @@
-@import "bulma/bulma.sass";
+@use "bulma/sass";
+@use "bulma/sass/utilities" as utils;
+@use "bulma/sass/utilities/mixins" as mixins;
 
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css");
@@ -7,9 +9,6 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color: #222;
-  background-color: #ffffff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -29,14 +28,81 @@ body {
 
 .editor {
   font-family: "IBM Plex Mono", monospace;
-  border-radius: $radius-large;
+  border-radius: utils.$radius-medium;
   overflow: hidden;
 }
 
 .bulma-loader-mixin {
-  @include loader;
+  @include mixins.loader;
 }
 
 .inline-block {
   display: inline-block;
+}
+
+// Some adjustments to match Bulma v0.9.4 styles
+.title {
+  --bulma-title-weight: var(--bulma-weight-semibold);
+}
+
+.title:not(.is-spaced):has(+ .subtitle) {
+  margin-bottom: 1.5rem;
+}
+
+.title:not(.is-spaced) + .subtitle {
+  margin-top: -1.25rem;
+}
+
+// Invert outlined buttons to fix contrast in dark mode
+.button.is-outlined {
+  --bulma-duration: 0;
+
+  --bulma-button-h: var(--bulma-dark-h);
+  --bulma-button-s: var(--bulma-dark-s);
+  --bulma-button-l: var(--bulma-dark-l);
+  --bulma-button-background-l: var(--bulma-dark-l);
+  --bulma-button-border-l: var(--bulma-dark-l);
+  --bulma-button-border-width: 1px;
+  --bulma-button-color-l: var(--bulma-dark-invert-l);
+  --bulma-button-outer-shadow-a: 0;
+
+  @media (prefers-color-scheme: dark) {
+    --bulma-button-h: var(--bulma-light-h);
+    --bulma-button-s: var(--bulma-light-s);
+    --bulma-button-l: var(--bulma-light-l);
+    --bulma-button-background-l: var(--bulma-light-l);
+    --bulma-button-border-l: var(--bulma-light-l);
+    --bulma-button-border-width: 1px;
+    --bulma-button-color-l: var(--bulma-light-invert-l);
+    --bulma-button-outer-shadow-a: 0;
+  }
+
+  [data-theme="dark"] &,
+  .theme-dark & {
+    --bulma-button-h: var(--bulma-light-h);
+    --bulma-button-s: var(--bulma-light-s);
+    --bulma-button-l: var(--bulma-light-l);
+    --bulma-button-background-l: var(--bulma-light-l);
+    --bulma-button-border-l: var(--bulma-light-l);
+    --bulma-button-border-width: 1px;
+    --bulma-button-color-l: var(--bulma-light-invert-l);
+    --bulma-button-outer-shadow-a: 0;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: utils.$grey-darker;
+    color: utils.$white;
+
+    @media (prefers-color-scheme: dark) {
+      background-color: utils.$white-ter;
+      color: utils.$black;
+    }
+
+    [data-theme="dark"] &,
+    .theme-dark & {
+      background-color: utils.$white-ter;
+      color: utils.$black;
+    }
+  }
 }

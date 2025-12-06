@@ -15,7 +15,7 @@ const Toolbar: FunctionComponent<Props> = ({
     <div className="block level">
       <div className="level-left">
         <button
-          className="level-item button is-dark is-outlined"
+          className="level-item button is-outlined"
           onClick={handleClickRun}
         >
           <span class="icon">
@@ -24,7 +24,7 @@ const Toolbar: FunctionComponent<Props> = ({
           <span>Compile and Run</span>
         </button>
         <button
-          className="level-item button is-dark is-outlined"
+          className="level-item button is-outlined"
           onClick={handleClickCompile}
         >
           <span class="icon">
@@ -33,7 +33,7 @@ const Toolbar: FunctionComponent<Props> = ({
           <span>Compile only</span>
         </button>
         <button
-          className="level-item button is-dark is-outlined"
+          className="level-item button is-outlined"
           onClick={handleClickSaveAs}
         >
           <span class="icon">
