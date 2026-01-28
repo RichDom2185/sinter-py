@@ -10,7 +10,7 @@ importers:
     dependencies:
       ace-builds:
         specifier: ^1.43.5
-        version: 1.43.5
+        version: 1.43.6
       bulma:
         specifier: ^1.0.4
         version: 1.0.4
@@ -591,8 +591,8 @@ packages:
   '@types/file-saver@2.0.7':
     resolution: {integrity: sha512-dNKVfHd/jk0SkR/exKGj2ggkB45MAkzvWCaqLUUgkyjITkGNzH8H+yUwr+BLJUBjZOe9w8X3wgmXhZDRg1ED6A==}
 
-  ace-builds@1.43.5:
-    resolution: {integrity: sha512-iH5FLBKdB7SVn9GR37UgA/tpQS8OTWIxWAuq3Ofaw+Qbc69FfPXsXd9jeW7KRG2xKpKMqBDnu0tHBrCWY5QI7A==}
+  ace-builds@1.43.6:
+    resolution: {integrity: sha512-L1ddibQ7F3vyXR2k2fg+I8TQTPWVA6CKeDQr/h2+8CeyTp3W6EQL8xNFZRTztuP8xNOAqL3IYPqdzs31GCjDvg==}
 
   acorn-class-fields@1.0.0:
     resolution: {integrity: sha512-l+1FokF34AeCXGBHkrXFmml9nOIRI+2yBnBpO5MaVAaTIJ96irWLtcCxX+7hAp6USHFCe+iyyBB4ZhxV807wmA==}
@@ -1504,7 +1504,7 @@ snapshots:
 
   '@types/file-saver@2.0.7': {}
 
-  ace-builds@1.43.5: {}
+  ace-builds@1.43.6: {}
 
   acorn-class-fields@1.0.0(acorn@8.15.0):
     dependencies:
@@ -1811,7 +1811,7 @@ snapshots:
 
   react-ace@14.0.1(react-dom@19.2.1(react@19.2.1))(react@19.2.1):
     dependencies:
-      ace-builds: 1.43.5
+      ace-builds: 1.43.6
       diff-match-patch: 1.0.5
       lodash.get: 4.4.2
       lodash.isequal: 4.5.0
