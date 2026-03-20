@@ -3,8 +3,7 @@ import { assemble } from "js-slang";
 import { Program } from "js-slang/dist/vm/svml-compiler";
 import { stringifyProgram } from "js-slang/dist/vm/util";
 import { FunctionComponent } from "preact";
-import { useEffect, useState } from "preact/hooks";
-import { setupInterpreter } from "../lib/setupInterpreter";
+import { useState } from "preact/hooks";
 import { usePyodide } from "../utils/python";
 import Toolbar from "./Toolbar";
 
@@ -20,14 +19,6 @@ const Sidebar: FunctionComponent<Props> = ({ handleClickCompile }) => {
   const [asmOutput, setAsmOutput] = useState<string | null>(null);
   const [pyOutput, setPyOutput] = useState<string | null>(null);
 
-  const [isFirstRun, setIsFirstRun] = useState(true);
-  useEffect(() => {
-    if (pyodide && isFirstRun) {
-      setupInterpreter(pyodide);
-      setIsFirstRun(false);
-    }
-  }, [pyodide, isFirstRun]);
-
   const handleCompile = async () => {
     const asm = await handleClickCompile();
     setAsmOutput(stringifyProgram(asm).trim());
@@ -36,13 +27,12 @@ const Sidebar: FunctionComponent<Props> = ({ handleClickCompile }) => {
   const handleCompileAndRun = async () => {
     const asm = await handleClickCompile();
     setAsmOutput(stringifyProgram(asm).trim());
-    if (!pyodide) {
+    if (pyodide.isLoading) {
       return;
     }
 
     setPyOutput(null);
-    pyodide.globals.set("prgrm", assemble(asm));
-    pyodide.runPython(`exec(open('main.py').read())`);
+    pyodide.runProgram(assemble(asm));
   };
 
   const handleSaveAs = async () => {
@@ -79,7 +69,7 @@ const Sidebar: FunctionComponent<Props> = ({ handleClickCompile }) => {
         </p>
       </div>
       <div className="block">
-        {pyodide ? (
+        {!pyodide.isLoading ? (
           <pre>
             {pyOutput !== null ? (
               <code>{pyOutput}</code>
