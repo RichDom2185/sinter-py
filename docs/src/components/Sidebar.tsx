@@ -43,7 +43,7 @@ const Sidebar: FunctionComponent<Props> = ({ handleClickCompile }) => {
   };
 
   return (
-    <div>
+    <div class="block">
       <Toolbar
         handleClickRun={handleCompileAndRun}
         handleClickCompile={handleCompile}
