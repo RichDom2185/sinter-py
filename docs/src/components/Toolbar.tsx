@@ -12,11 +12,11 @@ const Toolbar: FunctionComponent<Props> = ({
   handleClickSaveAs,
 }) => {
   return (
-    <div className="block level">
-      <div className="level-left">
+    <div class="block level">
+      <div class="level-left">
         <button
           type="button"
-          className="level-item button is-outlined"
+          class="level-item button is-outlined"
           onClick={handleClickRun}
         >
           <span class="icon">
@@ -26,7 +26,7 @@ const Toolbar: FunctionComponent<Props> = ({
         </button>
         <button
           type="button"
-          className="level-item button is-outlined"
+          class="level-item button is-outlined"
           onClick={handleClickCompile}
         >
           <span class="icon">
@@ -36,7 +36,7 @@ const Toolbar: FunctionComponent<Props> = ({
         </button>
         <button
           type="button"
-          className="level-item button is-outlined"
+          class="level-item button is-outlined"
           onClick={handleClickSaveAs}
         >
           <span class="icon">

@@ -17,18 +17,18 @@ const App: FunctionComponent = () => {
   };
 
   return (
-    <div className="container">
+    <div class="container">
       <section class="hero">
         <div class="hero-body">
           <h1 class="title">sinter-py Demo</h1>
           <p class="subtitle">js-slang &rarr; SVML &rarr; Python</p>
         </div>
       </section>
-      <div className="columns">
-        <div className="column">
+      <div class="columns">
+        <div class="column">
           <Editor value={code} onChange={setCode} />
         </div>
-        <div className="column">
+        <div class="column">
           <Sidebar handleClickCompile={handleCompile} />
         </div>
       </div>

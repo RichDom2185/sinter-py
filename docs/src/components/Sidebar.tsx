@@ -49,12 +49,12 @@ const Sidebar: FunctionComponent<Props> = ({ handleClickCompile }) => {
         handleClickCompile={handleCompile}
         handleClickSaveAs={handleSaveAs}
       />
-      <div className="block">
+      <div class="block">
         <p>
           <b>Step 1:</b> Compile to SVML using js-slang
         </p>
       </div>
-      <div className="block">
+      <div class="block">
         <pre>
           {asmOutput ? (
             <code>{asmOutput}</code>
@@ -63,12 +63,12 @@ const Sidebar: FunctionComponent<Props> = ({ handleClickCompile }) => {
           )}
         </pre>
       </div>
-      <div className="block">
+      <div class="block">
         <p>
           <b>Step 2:</b> Interpret compiled SVML in Python using sinter-py
         </p>
       </div>
-      <div className="block">
+      <div class="block">
         {!pyodide.isLoading ? (
           <pre>
             {pyOutput !== null ? (
@@ -78,8 +78,8 @@ const Sidebar: FunctionComponent<Props> = ({ handleClickCompile }) => {
             )}
           </pre>
         ) : (
-          <pre className="block">
-            <span className="bulma-loader-mixin inline-block" />
+          <pre class="block">
+            <span class="bulma-loader-mixin inline-block" />
             <span>&nbsp;&nbsp;Loading Python interpreter&hellip;</span>
           </pre>
         )}
