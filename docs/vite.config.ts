@@ -10,4 +10,9 @@ export default defineConfig({
     },
   },
   plugins: [preact()],
+  legacy: {
+    // Needed for react-ace
+    // https://github.com/vitejs/rolldown-vite/issues/457
+    inconsistentCjsInterop: true,
+  },
 });
