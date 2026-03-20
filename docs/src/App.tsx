@@ -1,5 +1,5 @@
 import { compileFiles, createContext } from "js-slang";
-import { Chapter } from "js-slang/dist/types";
+import { Chapter } from "js-slang/dist/langs";
 import { FunctionComponent } from "preact";
 import { useState } from "preact/hooks";
 import Builtins from "./components/Builtins";
