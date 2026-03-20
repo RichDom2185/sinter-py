@@ -8,7 +8,7 @@ type PyodideOptions = Partial<{
 
 const setupPyodide = async (options?: PyodideOptions) => {
   const pyodide = await loadPyodide({
-    indexURL: "https://cdn.jsdelivr.net/pyodide/v0.29.0/full",
+    indexURL: "https://cdn.jsdelivr.net/pyodide/v0.29.1/full",
   });
   if (options?.redirectStdout) {
     pyodide.setStdout({ batched: options.redirectStdout });
