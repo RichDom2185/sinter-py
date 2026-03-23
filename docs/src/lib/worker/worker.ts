@@ -6,7 +6,7 @@ let pyodidePromise: Promise<PyodideInterface> | null = null;
 
 const setupPyodide = async () => {
   const pyodide = await loadPyodide({
-    indexURL: "https://cdn.jsdelivr.net/pyodide/v0.29.1/full",
+    indexURL: "https://cdn.jsdelivr.net/pyodide/v0.29.3/full",
   });
   pyodide.setStdout({
     batched: (text) => post({ type: "stdout", text }),
