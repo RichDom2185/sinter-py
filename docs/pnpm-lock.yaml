@@ -22,7 +22,7 @@ importers:
         version: 3.0.0
       js-slang:
         specifier: ^1.0.88
-        version: 1.0.89
+        version: 1.0.90
       path-browserify:
         specifier: ^1.0.1
         version: 1.0.1
@@ -783,8 +783,8 @@ packages:
   boolbase@1.0.0:
     resolution: {integrity: sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==}
 
-  brace-expansion@2.0.3:
-    resolution: {integrity: sha512-MCV/fYJEbqx68aE58kv2cA/kiky1G8vux3OR6/jbS+jIMe/6fJWa0DTzJU7dqijOWYwHi1t29FlfYI9uytqlpA==}
+  brace-expansion@2.1.0:
+    resolution: {integrity: sha512-TN1kCZAgdgweJhWWpgKYrQaMNHcDULHkWwQIspdtjV4Y5aurRdZpjAqn6yX3FPqTA9ngHCc4hJxMAMgGfve85w==}
 
   braces@3.0.3:
     resolution: {integrity: sha512-yQbXgO/OSZVD2IsiLlro+7Hf6Q18EJrKSEsdoMzKePKXct3gvD8oLcOQdIzGupr5Fj+EDe8gO/lxc1BzfMpxvA==}
@@ -935,8 +935,8 @@ packages:
   js-base64@3.7.8:
     resolution: {integrity: sha512-hNngCeKxIUQiEUN3GPJOkz4wF/YvdUdbNL9hsBcMQTkKzboD7T/q3OYOuuPZLUE6dBxSGpwhk5mwuDud7JVAow==}
 
-  js-slang@1.0.89:
-    resolution: {integrity: sha512-lst7Qr39kMB0jYRsbrBhmgBvj2CKYxKou+fCwUZ0JI284eByUSFfaKuQR2d/+a6gPxftcMyzK1Ab3kmB7MHRkQ==}
+  js-slang@1.0.90:
+    resolution: {integrity: sha512-bi0AJ50dYH2B256xSBt771J+IALo4jS+a1Ww2PqvxY7HalYBJL1AjThYK9h9VCYDK+ApHpVLRv7uuasg6RU4yw==}
     hasBin: true
 
   js-tokens@4.0.0:
@@ -1860,7 +1860,7 @@ snapshots:
 
   boolbase@1.0.0: {}
 
-  brace-expansion@2.0.3:
+  brace-expansion@2.1.0:
     dependencies:
       balanced-match: 1.0.2
 
@@ -2020,7 +2020,7 @@ snapshots:
 
   js-base64@3.7.8: {}
 
-  js-slang@1.0.89:
+  js-slang@1.0.90:
     dependencies:
       '@babel/parser': 7.29.2
       '@commander-js/extra-typings': 14.0.0(commander@14.0.3)
@@ -2119,7 +2119,7 @@ snapshots:
 
   minimatch@5.1.9:
     dependencies:
-      brace-expansion: 2.0.3
+      brace-expansion: 2.1.0
 
   mkdirp@1.0.4: {}
 
